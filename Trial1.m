@@ -12,30 +12,18 @@ h.buttonTwo = uicontrol('style', 'pushbutton' ,...
     'string', 'TOF');
 
 % % Establish functions of buttons
+set(h.buttonOne, 'callback', {@addButton, h});
 set(h.buttonTwo, 'callback', {@addButton, h});
-% set(h.buttonTwo, 'callback', {@addButton, h});
 
 function h = addButton(hObject, eventdata, color)
     cP = get(gca, 'Currentpoint');
     x = cP(1,1);
     y = cP(1,2);
-    scatter(0.5,0.5,...
+    scatter(i, pressure1,...
         'MarkerSize', 100,...
         'MarkerFaceColor', [1.0, 0.5, 0.5]);
-%     plot(x, y,...
-%         'MarkerSize', 10,...
-%         'MarkerFaceColor', [0.5, 0.5, 0.5]);
-end
 
-% % Check if this works
-% x = [0 1 2 3];
-% y = [1 2 3 4];
-% 
-% plot(x, y);
-% hold on;
-% scatter(0.8, 2,...
-%     'MarkerSize', 10,...
-%     'MarkerFaceColor', [0.5, 0.5, 0.5]);
+end
 
 %% Graph
 % Generate the lines
@@ -71,11 +59,6 @@ while 1
     
     i = i+1; 
     pause(1); 
-%     if (h.buttonOne.isPressed)
-%         set(h.buttonOne, 'callback', {@addButton, h});
-%     elseif (h.buttonTwo.isPressed)
-%         set(h.buttonTwo, 'callback', {@addButton, h});
-%     end
 end
 
 end
