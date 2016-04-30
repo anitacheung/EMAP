@@ -1,6 +1,7 @@
 h.buttonOne = uicontrol('style', 'pushbutton',...
     'position', [550 325 50 50],...
-    'string', 'E');
+    'string', 'E',...
+    'Callback', @button);
 
 % %% Rendition 2: taking arduino data and plotting as a line
 % line(NaN, NaN, 'Color', 'Red');
@@ -20,8 +21,11 @@ h.buttonOne = uicontrol('style', 'pushbutton',...
 %     pause(1);
 % end
 
+
+h.fig = get(groot, 'CurrentFigure');
 %% Rendition 1b: plotting sine graph
 line1 = line(NaN, NaN, 'Color', 'Red');
+x = 0;
 while 1
     x = x + 1;
     y = sin(x);
@@ -32,10 +36,10 @@ while 1
     set(line1, 'xData', x1, 'yData', y1);
     pause(0.1);
     axis([x - 100 x + 100 -1.5 1.5]);
-    if (h.buttonOne.isPressed)
-        hold on;
-        scatter(x, y, 'MarkerFaceValue', 'red');
-    end
+    
+    hold;
+    %%set(h.buttonOne, 'buttonDownFcn', 'cp = get(gca, "CurrentPoint"', '...set(gca, "userdata", cp)');
+    
 end
     
 
