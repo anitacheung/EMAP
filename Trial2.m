@@ -37,8 +37,9 @@ while 1
     pause(0.1);
     axis([x - 100 x + 100 -1.5 1.5]);
     
-    hold;
-    %%set(h.buttonOne, 'buttonDownFcn', 'cp = get(gca, "CurrentPoint"', '...set(gca, "userdata", cp)');
+    newpoint = get(gca, 'CurrentPoint');
+    %text(newpoint(1) + 100, 0, num2str(newpoint(1)));
+    set(h.buttonOne, 'callback', @button);
     
 end
     

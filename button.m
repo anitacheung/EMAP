@@ -3,7 +3,7 @@ function h = button(hObject, eventData, color)
 %   Detailed explanation goes here
 
 hold on;
-cp = get(gca, 'CurrentPoint');
+[i, j] = hObject.get(gca, 'CurrentPoint');
 h = scatter(i, j,...
     'MarkerFaceColor', 'red');
 
